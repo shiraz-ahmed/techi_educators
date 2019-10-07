@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Website</title>
+  {% include 'school/school_css.css' %}
+
+  <style>
+  html {
+  scroll-behavior: smooth;
+ }
+  </style>
+ </head>
+ <body>
+
+     <!--START SCROLL TOP BUTTON -->
+      <a class="scrollToTop" href="#">
+      <i class="fa fa-angle-up"></i>
+      </a>
+      <!-- END SCROLL TOP BUTTON -->
+      <!-- Start menu -->
+      <section id="mu-menu">
+      <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- LOGO -->
+          <!-- TEXT BASED LOGO -->
+          <a class="navbar-brand" href=""><i class="fa fa-graduation-cap"></i><span>{{object.school_name}}</span></a>
+          <!-- IMG BASED LOGO  -->
+          <!-- <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="logo"></a> -->
+        </div>
+      {% include 'school/school_header.html'%}
+      </div>
+      </nav>
+      </section>
+      <!-- End menu -->
+
+  <!----------------- Start Slider-------------------->
+
+    <section id="mu-slider">
+        {% if object.school_slider3 %}
+    <!-- Start single slider item -->
+    <div class="mu-slider-single">
+      <div class="mu-slider-img">
+        <figure>
+          <img src="{{object.school_slider3.url}}" alt="img">
+        </figure>
+      </div>
+      <div class="mu-slider-content">
+        <h4>{{object.slogan}}</h4>
+        <span></span>
+        <h2 class="animated bounceInDown" style="animation-delay: 0.5s;">{{object.school_slider_heading}}</h2>  <!---Animate.css is used foranimation--->
+        <p class="animated zoomIn" style="animation-delay: 0.1s;">{{object.school_slider_desc|truncatewords:30}} </p>
+
+      </div>
+    </div>
+    {% else %}
+    <div class="mu-slider-single">
+      <div class="mu-slider-img">
+        <figure>
+          <img src="{%static 'school/img/slider/1.jpg' %}" alt="img">
+        </figure>
+      </div>
+      <div class="mu-slider-content">
+        <h4>{{object.school_name}}</h4>
+        <span></span>
+        <h2 class="animated bounceInDown" style="animation-delay: 0.5s;">We Will Help You To</h2>  <!---Animate.css is used foranimation--->
+        <p class="animated zoomIn" style="animation-delay: 0.1s;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor amet error eius reiciendis eum sint unde eveniet deserunt est debitis corporis temporibus recusandae accusamus.</p>
+        <a href="#" class="mu-read-more-btn animated bounce" style="animation-delay: 0.1s;">Read More</a><!--Animation-->
+      </div>
+    </div>
+    {% endif %}
+
+    {% if object.school_slider1 %}
+    <!-- Start single slider item -->
+    <div class="mu-slider-single">
+      <div class="mu-slider-img">
+        <figure>
+          <img src="{{object.school_slider1.url}}" alt="img">
+        </figure>
+      </div>
+      <div class="mu-slider-content">
+        <h4>{{object.slogan}}</h4>
+        <span></span>
+        <h2 class="animated bounceInDown" style="animation-delay: 0.5s;">{{object.school_slider_heading}}</h2>  <!---Animate.css is used foranimation--->
+        <p class="animated zoomIn" style="animation-delay: 0.1s;">{{object.school_slider_desc|truncatewords:30}} </p>
+
+      </div>
+    </div>
+    {% else %}
+    <div class="mu-slider-single">
+      <div class="mu-slider-img">
+        <figure>
+          <img src="{%static 'school/img/slider/1.jpg' %}" alt="img">
+        </figure>
+      </div>
+      <div class="mu-slider-content">
+        <h4>{{object.school_name}}</h4>
+        <span></span>
+        <h2 class="animated bounceInDown" style="animation-delay: 0.5s;">We Will Help You To</h2>  <!---Animate.css is used foranimation--->
+        <p class="animated zoomIn" style="animation-delay: 0.1s;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor amet error eius reiciendis eum sint unde eveniet deserunt est debitis corporis temporibus recusandae accusamus.</p>
+
+      </div>
+    </div>
+    {% endif %}
+
+      {% if object.school_slider1 %}
+      <!-- Start single slider item -->
+      <div class="mu-slider-single">
+      <div class="mu-slider-img">
+      <figure>
+        <img src="{{object.school_slider2.url}}" alt="img">
+      </figure>
+      </div>
+      <div class="mu-slider-content">
+      <h4>{{object..slogan}}</h4>
+      <span></span>
+      <h2 class="animated bounceInDown" style="animation-delay: 0.5s;">{{object.school_slider_heading}}</h2>  <!---Animate.css is used foranimation--->
+      <p class="animated zoomIn" style="animation-delay: 0.1s;">{{object.school_slider_desc|truncatewords:30}} </p>
+
+      </div>
+      </div>
+      {% else %}
+      <div class="mu-slider-single">
+      <div class="mu-slider-img">
+      <figure>
+        <img src="{%static 'school/img/slider/1.jpg' %}" alt="img">
+      </figure>
+      </div>
+      <div class="mu-slider-content">
+      <h4>{{object.school_name}}</h4>
+      <span></span>
+      <h2 class="animated bounceInDown" style="animation-delay: 0.5s;">We Will Help You To</h2>  <!---Animate.css is used foranimation--->
+      <p class="animated zoomIn" style="animation-delay: 0.1s;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor amet error eius reiciendis eum sint unde eveniet deserunt est debitis corporis temporibus recusandae accusamus.</p>
+      <a href="#" class="mu-read-more-btn animated bounce" style="animation-delay: 0.1s;">Read More</a><!--Animation-->
+      </div>
+      </div>
+      {% endif %}
+
+
+    <!-- Start single slider item -->
+  </section>
+  <!------------------------- End Slider-------------------------->
+
+
+  <!-------------------------------ACHIEVEMENTS------------------------>
+  <section id="mu-service">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="mu-service-area">
+            <!-- Start single service -->
+            <div class="mu-service-single">
+              <span class="fa fa-book"></span>
+              <h3>Achievements</h3>
+              {% if object.achievements%}
+                {{object.achievements}}
+                {% else %}
+
+              <p>Details are not added yet by school officials!</p>
+              {% endif %}
+            </div>
+            <!-- Start single service -->
+            <!-- Start single service -->
+            <div class="mu-service-single">
+              <span class="fa fa-users"></span>
+              <h3>Teacher Expertise</h3>
+              {% if object.teacher_expertise%}
+                {{object.teacher_expertise}}
+                {% else %}
+
+              <p>Details are not added yet by school officials!</p>
+              {% endif %}
+            </div>
+            <!-- Start single service -->
+            <!-- Start single service -->
+            <div class="mu-service-single">
+              <span class="fa fa-table"></span>
+                <h3>Learning Environment</h3>
+              {% if object.environment%}
+                {{object.environment}}
+                {% else %}
+
+              <p>Details are not added yet by school officials!</p>
+              {% endif %}
+            </div>
+            <!-- Start single service -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   <!----------------------END ACHIEVEMENTS ---------------------------->
+
+    <!-------------------------OUR TEACHERS------------------------------>
+    <section id="ourteachers" class="trainer_area section_gap_top">
+      <div class="container">
+       <div class="main_title">
+      	<h2>Our Teachers</h2>
+        {% if object.teacher_expertise%}
+          <h2>{{object.teacher_expertise}}</h2>
+          {% else %}
+
+        <h3>School teachers are not added yet! it is requested to school admin to complete the basic info</h3>
+        {% endif %}
+      	</div>
+        {% for teacher in teachers %}
+        <div class="row justify-content-center d-flex align-items-center">
+          <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+            <div class="thumb d-flex justify-content-sm-center">
+              <img class="img-fluid tilt img-responsive " src="{{teacher.teacher_img.url}}" alt="" height="223px" width="263px"/>
+            </div>
+            <div class="meta-text text-sm-center">
+              <h4>{{teacher.teacher_name}}</h4>
+              <p class="designation">{{teacher.teacher_qual}}</p>
+              <div class="mb-4">
+                <p>
+                  {{teacher.teacher_intro|linebreaks}}
+                </p>
+              </div>
+              <div class="align-items-center justify-content-center d-flex">
+                <a href="#"><i class="fa fa-facebook" style="color: #385898;"></i></a>
+                <a href="#"><i class="fa fa-twitter" style="color:#2e86de;"></i></a>
+                <a href="#"><i class="fa fa-linkedin" style="color:#0077B5;"></i></a>
+                <a href="#"><i class="fa fa-youtube" style="color:#dd2c00;"></i></a>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+            <div class="thumb d-flex justify-content-sm-center">
+              <img class="img-fluid tilt" src="{%static 'school/img/trainer/t2.jpg' %}" alt="" />
+            </div>
+            <div class="meta-text text-sm-center">
+              <h4>Mr Dummy</h4>
+              <p class="designation">Senior S.S</p>
+              <div class="mb-4">
+                <p>
+                  If you are looking at blank cassettes on the web, you may be
+                  very confused at the.
+                </p>
+              </div>
+              <div class="align-items-center justify-content-center d-flex">
+                <a href="#"><i class="fa fa-facebook" style="color: #385898;"></i></a>
+                <a href="#"><i class="fa fa-twitter" style="color:#2e86de;"></i></a>
+                <a href="#"><i class="fa fa-linkedin" style="color:#0077B5;"></i></a>
+                <a href="#"><i class="fa fa-youtube" style="color:#dd2c00;"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+            <div class="thumb d-flex justify-content-sm-center">
+              <img class="img-fluid tilt" src="{%static 'school/img/trainer/t3.jpg' %}" alt="" />
+            </div>
+            <div class="meta-text text-sm-center">
+              <h4>Mr ASDF</h4>
+              <p class="designation">Data Science</p>
+              <div class="mb-4">
+                <p>
+                  If you are looking at blank cassettes on the web, you may be
+                  very confused at the.
+                </p>
+              </div>
+              <div class="align-items-center justify-content-center d-flex">
+                <a href="#"><i class="fa fa-facebook" style="color: #385898;"></i></a>
+                <a href="#"><i class="fa fa-twitter" style="color:#2e86de;"></i></a>
+                <a href="#"><i class="fa fa-linkedin" style="color:#0077B5;"></i></a>
+                <a href="#"><i class="fa fa-youtube" style="color:#dd2c00;"></i></a>
+              </div>
+            </div>
+          </div>
+
+         <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+            <div class="thumb d-flex justify-content-sm-center">
+              <img class="img-fluid tilt" src="{% static 'school/img/trainer/t4.jpg' %}" alt="" />
+            </div>
+            <div class="meta-text text-sm-center">
+              <h4>Mr. Qwerty</h4>
+              <p class="designation">Psychologist</p>
+              <div class="mb-4">
+                <p>
+                  If you are looking at blank cassettes on the web, you may be
+                  very confused at the.
+                </p>
+              </div>
+              <div class="align-items-center justify-content-center d-flex">
+                <a href="#"><i class="fa fa-facebook" style="color: #385898;"></i></a>
+                <a href="#"><i class="fa fa-twitter" style="color:#2e86de;"></i></a>
+                <a href="#"><i class="fa fa-linkedin" style="color:#0077B5;"></i></a>
+                <a href="#"><i class="fa fa-youtube" style="color:#dd2c00;"></i></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+
+        </div>
+      </div>
+    </section>
+    <!--------------------End Our teachers---------------------->
+
+
+    <!--------------------SCHOOL DESCRIPTION---------------------->
+    <section class="page-description cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">OUR SCHOOL</span>
+              <span class="section-heading-lower">DESCRIPTION</span>
+            </h2>
+            <p class="mb-0">{{object.description}}</p>
+             {% if object.demo_video %}
+               <h3 style="font-weight: 100; color: #4b4b4b;">Watch video</h3>
+            <a href="{{object.demo_video.url}}" class="venobox play-btn mb-4" data-vbtype="video"
+        data-autoplay="true"></a>
+        {%endif%}
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+ <!--------------------END SCHOOL DESCRIPTION---------------->
+
+
+
+ <!------------PRINCIPAL MESSAGE--------------------------->
+ <div id="principal">
+  <section id="testimonials" >
+    <div class="container wow fadeInUp" >
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="section-title">Principal Message</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="profile">
+            {% if object.principal_pic %}
+            <div class="pic"><img src="{{object.principal_pic.url}}" alt=""></div>
+            {% else %}
+            <div class="pic">  <img src="{% static 'default.jpg' %}" alt="principal img"></div>
+            {% endif %}
+            <h4>{{object.principal_name}}</h4>
+            <!-- <span>{{object.principal_qual}}</span>
+            <h5>{{object.principal_qual}}</h5> -->
+
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="quote">
+            <b><img src="{% static 'school/img/quote_sign_left.png' %}" alt=""></b>{{object.principal_message}} <small><img src="{%static 'school/img/quote_sign_right.png'%}" alt=""></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!------------------- End Principal------------------------>
+
+
+
+<!---------------------NEWS AND EVENTS----------------------------->
+
+<div class="news_title" id="news">
+<h2>Latest News</h2>
+</div>
+{% for event in news %}
+<figure class="snip1208">
+  <!-- {{event.image}} -->
+  {% if event.image %}
+    <img src="{{event.image.url}}" alt="sample66"/>
+  {% endif %}
+  <!-- {{ birthday|date:"M d, Y" }} the actual format -->
+  <div class="date"><span class="day">{{event.timestamp|date:"d" }}</span><span class="month">{{event.timestamp|date:"M" }}</span></div><i class="ion-film-marker"></i>
+  <figcaption>
+    <h3>{{event.news_heading}}</h3>
+    <p>
+      {{event.news_desc|truncatewords:25}}
+    </p>
+     <button>Read More</button>
+  </figcaption><a href="{%url 'news' event.pk %}"></a>
+</figure>
+{% endfor %}
+
+<!--
+<figure class="snip1208">
+  <img src="{% static 'img/news.png'%}"/>
+  <div class="date"><span class="day">10</span><span class="month">July</span></div><i class="ion-checkmark"> </i>
+  <figcaption>
+    <h3>Down with this sort of thing</h3>
+    <p>
+      I don't need to compromise my principles, because they don't have the slightest bearing on what happens to me anyway.
+    </p>
+    <button>Read More</button>
+  </figcaption><a href="news.html"></a>
+</figure> -->
+
+<!----------------------END OF NEWS AND EVENTS---------------------------->
+
+
+<!------------------------- START FOOTER-------------------------->
+      <footer class="footer-distributed">
+       <div class="footer-left">
+        <h3>{{object.school_name}}<span> {{object.get_district_display}}</span></h3>
+          <p class="footer-links">
+		    <a href="{%url 'school' object.slug%}">Home</a>
+			-
+			<a href="#">About School</a>
+					·
+			<a href="#">Gallery</a>
+			·
+			<a href="#">Principal Message</a>
+			</p>
+            <p class="footer-company-name">Shiraz Ahmed &copy; {%now 'Y'%}</p>
+			</div>
+            <div class="footer-center">
+            <div>
+			<i class="fa fa-map-marker"></i>
+			<p><span>{{object.school_address}}</span>{{object.tehsil}} {{object.get_district_display}}</p>
+			</div>
+            <div>
+			<i class="fa fa-phone"></i>
+			<p>{{object.school_contact}}</p>
+			</div>
+			<div>
+			<i class="fa fa-envelope"></i>
+			<p><a href="mailto:support@company.com">{{object.school_email}}</a></p>
+			</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+				<span>About the School</span>
+			{{object.description|truncatewords:30}}
+				</p>
+				<div class="footer-icons">
+					<a href="{{object.facebook_addr}}"><i class="fa fa-facebook"></i></a>
+					<a href="{{object.twitter_addr}}"><i class="fa fa-twitter"></i></a>
+					<a href="{{object.linkedin_addr}}"><i class="fa fa-linkedin"></i></a>
+					<a href="{{object.school_email}}"><i class="fa fa-google"></i></a>
+				</div>
+			</div>
+		</footer>
+
+ <!------------------------------END FOOTER--------------------------->
+
+{% include 'school/school_javascripts.js' %}
+
+<script>
+$(document).ready(function(){
+ // Add smooth scrolling to all links
+ $("a").on('click', function(event) {
+
+   // Make sure this.hash has a value before overriding default behavior
+   if (this.hash !== "") {
+     // Prevent default anchor click behavior
+     event.preventDefault();
+
+     // Store hash
+     var hash = this.hash;
+
+     // Using jQuery's animate() method to add smooth page scroll
+     // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+     $('html, body').animate({
+       scrollTop: $(hash).offset().top
+     }, 800, function(){
+
+       // Add hash (#) to URL when done scrolling (default click behavior)
+       window.location.hash = hash;
+     });
+   } // End if
+ });
+});
+</script>
+
+  <!------------------------------SCRIPTS--------------------------->
+  <!------------------------------SCRIPTS--------------------------->
+
+</body>
+</html>

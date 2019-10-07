@@ -1,0 +1,187 @@
+{% extends 'dashboard/dashboard_index.html'%}
+{%block title %}  Dashboard Gallery   {%endblock%}
+
+
+{% block content %}
+
+<section id="main-content">
+  <section class="wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-file-text-o"></i>School Basic Info</h3>
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+          <li><i class="icon_document_alt"></i>School info</li>
+          <li><i class="fa fa-picture-o"></i>Gallery section</li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">
+            Gallery Details
+          </header>
+
+          {% if messages %}
+          <ul class="messages">
+           {% for message in messages %}
+           <li><div class="alert alert-success alert-dismissible">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong class="bold">Success!</strong> {{message}}
+          </div></li>
+
+           {% endfor %}
+          </ul>
+          {% endif %}
+
+
+
+          <div class="panel-body">
+            <form class="form-horizontal " method="post" action="{% url 'dashboard_gallery'%}" enctype="multipart/form-data" id="form1">
+              {% csrf_token %}
+              <!-- <div class="form-group">
+                <label class="col-sm-2 control-label">Gallery Note</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control">
+                  <span class="help-block">Short Details about Image Gallery</span>
+                </div>
+              </div> -->
+               <label class="col-sm-2 control-label">Picture</label>
+                <div class="col-sm-2">
+                  <input type="file" class="form-control" name="gallery_img" required>
+                  <span class="help-block">Gallery images</span>
+                </div>
+                <label class="col-sm-2 control-label">Select Category</label>
+                <div class="col-sm-2">
+                  {{form.img_category}}
+                <!-- <select name="imggallery" id="imggallery" class="form-control">
+                  <option value="" disabled selected>All</option>
+                  <option value="Lab">Lab</option>
+                  <option value="Classroom">Classroom</option>
+                  <option value="Library">Library</option>
+                  <option value="Cafe">Cafe</option>
+                  <option value="Others">Others</option>
+                </select> -->
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Image Title</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" name="gallery_img_title" required>
+
+              <!-- for school identity -->
+                  <input type="hidden" class="form-control" name="school" value="{{object.id}}">
+                  <span class="help-block">Image title/Description</span>
+                </div>
+                <div class="input-group control-group after-add-more">
+                  <div class="input-group-btn">
+                <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add More Pics</button>
+             </div>
+             </div>
+
+</form>
+
+              <div class="copy hide">
+                <form class="form-horizontal " method="post" action="{% url 'dashboard_gallery'%}" enctype="multipart/form-data" id="form2">
+              {% csrf_token%}
+             <div class="control-group input-group" style="margin-top:10px">
+               <!-- <div class="form-group">
+                <label class="col-sm-2 control-label">Gallery Note</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control">
+                  <span class="help-block">Short Details about Image Gallery</span>
+                </div>
+              </div> -->
+              <!-- for school identity -->
+
+               <label class="col-sm-2 control-label">Picture</label>
+                <div class="col-sm-2">
+                  <input type="file" class="form-control" name="gallery_img" required>
+                  <span class="help-block">Gallery images</span>
+                </div>
+                <label class="col-sm-2 control-label">Select Category</label>
+                <div class="col-sm-2">
+                  {{form.img_category}}
+                <!-- <select name="imggallery" id="imggallery" class="form-control" name="img_category" required>
+                  <option value="" disabled selected>All</option>
+                  <option value="LA">Lab</option>
+                  <option value="CM">Classroom</option>
+                  <option value="LB">Library</option>
+                  <option value="CF">Cafe</option>
+                  <option value="OT">Others</option>
+                </select> -->
+              </div>
+                <label class="col-sm-2 control-label">Image Title</label>
+                <div class="col-sm-2">
+                  <input type="text" class="form-control" name="gallery_img_title" required>
+                    <input type="hidden" class="form-control" name="school" value="{{object.id}}">
+                  <span class="help-block">Image title/Description</span>
+                </div>
+
+        <div class="input-group-btn" style="float: left; margin-left: 33%;">
+          <button class="btn btn-danger remove" type="button" style="padding: 8px 40px;"><i class="glyphicon glyphicon-remove"></i>Remove</button>
+        </div>
+      </div>
+      <div class="form-group">
+
+            </div>
+
+            </form>
+</div>
+
+    <div class="form-group">
+            <div class="col-lg-offset-6 col-lg-10">
+              <button class="btn btn-primary" type="submit" onclick="submitForms()">Save</button>
+
+            </div>
+          </div>
+
+  </div>
+
+
+
+          </div>
+
+
+<div class="text-right">
+  <div class="credits">
+      Designed by <a href="">SirajZia</a>
+    </div>
+</div>
+</section>
+
+
+</section>
+
+
+
+<!-- two show the addmore twice copy and paste the below script again -->
+
+<script type="text/javascript">
+
+// for addmore pics
+    $(document).ready(function() {
+
+
+      $(".add-more").click(function(){
+          var html = $(".copy").html();
+          $(".after-add-more").after(html);
+      });
+
+
+      $("body").on("click",".remove",function(){
+          $(this).parents(".control-group").remove();
+      });
+
+
+    });
+
+
+</script>
+<script type="text/javascript">
+  submitForms = function(){
+    document.getElementById("form1").submit();
+    document.getElementById("form2").submit();
+}
+</script>
+{% endblock%}

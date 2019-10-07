@@ -1,0 +1,160 @@
+{% extends 'dashboard/dashboard_index.html'%}
+{% load static %}
+{%block title %}  Dashboard news  {%endblock%}
+
+
+{% block content %}
+
+<section id="main-content">
+  <section class="wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-file-text-o"></i>News Section</h3>
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+          <li><i class="icon_document_alt"></i>School info</li>
+          <li><i class="fa fa-file-text-o"></i>School Basic Info</li>
+          <li><i class="fa fa-rss"></i>News Section</li>
+
+        </ol>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">
+            News Blog
+          </header>
+          {% if messages %}
+          <ul class="messages">
+           {% for message in messages %}
+           <li><div class="alert alert-success alert-dismissible">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> {{message}}
+          </div></li>
+
+           {% endfor %}
+          </ul>
+          {% endif %}
+
+
+
+          <div class="panel-body">
+            <form class="form-horizontal" method="POST" action="{% url 'dashboard_news' %}" enctype="multipart/form-data" >
+              <!-- {{form.user.school}} -->
+              <!-- {{form.school}} -->
+              {% csrf_token %}
+              <!-- {{form.school}} -->
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Add News Heading</label>
+                <div class="col-sm-10">
+                  {{form.news_heading}}
+                  <!-- <input type="text" class="form-control" name="news_heading"> -->
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">News</label>
+                <div class="col-sm-10">
+                  {{form.news_desc}}
+                  <!-- <textarea class="col-lg-12" style="height: 200px;" name="news"></textarea> -->
+                  <span class="help-block">Complete News</span>
+
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Select Image</label>
+                <div class="col-sm-10">
+                  {{form.image}}
+                  <!-- <input type="file" class="form-control" name="image"> -->
+                  <span class="help-block">image relevant to news</span>
+
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Published By</label>
+                <div class="col-sm-4">
+                  {{form.published_by}}
+                  <!-- <input type="text" class="form-control" name="published_by">-->
+                  <span class="help-block">Published By (Admin, Moderator, Supervisor)</span>
+
+                  <input type="hidden" value="{{object.id}}" name="school">
+                </div>
+
+              </div>
+              <label class="col-sm-2 control-label">News Categories</label>
+                <div class="col-sm-4">
+                  {{form.news_category}}
+                <!-- <select name="news_category" id="newscat" class="form-control">
+                  {{form.news_category}}
+                  <!-- <option value="" disabled selected>All</option>
+                  <option value="Latest">Latest</option>
+                  <option value="Admission">Admission</option>
+                  <option value="Result">Result</option>
+                  <option value="About Institute">About Institute</option>
+                  <option value="Principal Message">Principal Message</option>
+                  <option value="Other">Other</option>
+                </select>-->
+              </div>
+
+              <div class="form-group">
+                      <div class="col-lg-offset-6 col-lg-10">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-default" type="button">Cancel</button>
+                      </div>
+                    </div>
+
+             </form>
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+
+
+            <section class="panel">
+              <header class="panel-heading">
+                News Tag
+              </header>
+              <div class="panel-body">
+                <input name="tagsinput" id="tagsinput" class="tagsinput" value="Health, Science, Sports, Mathematics, Admission, History, Enviroment" />
+              </div>
+            </section>
+          </div>
+
+<div class="text-right">
+  <div class="credits">
+      Designed by <a href="">SirajZia</a>
+    </div>
+</div>
+</section>
+<script type="text/javascript">
+
+// for addmore pics
+$(document).ready(function() {
+
+
+  $(".add-more").click(function(){
+      var html = $(".copy").html();
+      $(".after-add-more").after(html);
+  });
+
+
+  $("body").on("click",".remove",function(){
+      $(this).parents(".control-group").remove();
+  });
+
+
+});
+
+
+
+</script>
+  <!--custom checkbox & radio-->
+
+{% endblock%}

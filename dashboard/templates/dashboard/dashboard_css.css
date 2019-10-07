@@ -1,0 +1,22 @@
+{% load static %}
+<!-- Bootstrap CSS -->
+<link href="{%static 'dashboard/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- bootstrap theme -->
+<link href="{%static 'dashboard/css/bootstrap-theme.css' %}" rel="stylesheet">
+<!--external css-->
+<!-- font icon -->
+<link href="{%static 'dashboard/css/elegant-icons-style.css' %}" rel="stylesheet" />
+<link href="{%static 'dashboard/css/font-awesome.min.css' %}" rel="stylesheet" />
+<!-- owl carousel -->
+<link rel="stylesheet" href="{%static 'dashboard/css/owl.carousel.css' %}" type="text/css">
+<link href="{%static 'dashboard/css/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet">
+<!-- Custom styles -->
+<link rel="stylesheet" href="{%static 'dashboard/css/fullcalendar.css' %}">
+<link href="{%static 'dashboard/css/widgets.css' %}" rel="stylesheet">
+<link href="{%static 'dashboard/css/style.css' %}" rel="stylesheet">
+<link href="{%static 'dashboard/css/style-responsive.css' %}" rel="stylesheet" />
+<link href="{%static 'dashboard/css/xcharts.min.css' %}" rel=" stylesheet">
+<link href="{%static 'dashboard/css/jquery-ui-1.10.4.min.css' %}" rel="stylesheet">
+<!-- add more -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">

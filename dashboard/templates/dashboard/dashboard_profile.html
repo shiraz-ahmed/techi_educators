@@ -1,0 +1,71 @@
+{% extends 'dashboard/dashboard_index.html'%}
+{% load static %}
+{%block title %}  Dashboard Profile  {%endblock%}
+
+
+{% block content %}
+
+
+<section id="main-content">
+  <section class="wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-user-md"></i> Profile</h3>
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+          <li><i class="icon_documents_alt"></i>Pages</li>
+          <li><i class="fa fa-user-md"></i>Profile</li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <!-- profile-widget -->
+      <div class="col-lg-12">
+        <div class="profile-widget profile-widget-info">
+          <div class="panel-body">
+            <div class="col-lg-2 col-sm-2">
+              <h4>{{object.user.name}}</h4>
+              <div class="follow-ava">
+                {% if object.principal_pic %}
+                <img src="{{object.principal_pic.url}}" alt="principal">
+                <!-- <h1 style='color:black'>this is object {{object.user.name}}</h1> -->
+                {%endif%}
+              </div>
+              <h6>Administrator</h6>
+            </div>
+            <div class="col-lg-4 col-sm-4 follow-info">
+              <h4>Institute Registered </h4>
+              <p>{{object.school_name}}</p>
+              <p>{{object.user.email}}</p>
+              <h6>
+
+                                <span><i class="icon_calendar"></i>{% now ''%}</span>
+                                <span><i class="icon_pin_alt"></i>PAK</span>
+                            </h6>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</section>
+<!--main content end-->
+<div class="text-right">
+  <div class="credits">
+      Designed by <a href="">SirajZia</a>
+    </div>
+</div>
+</section>
+<script src="{% static 'assets/jquery-knob/js/jquery.knob.js'%}"></script>
+
+<script>
+  //knob
+  $(".knob").knob();
+</script>
+
+
+{% endblock%}

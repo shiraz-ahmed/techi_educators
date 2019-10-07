@@ -1,0 +1,47 @@
+<aside>
+  <div id="sidebar" class="nav-collapse ">
+    <!-- sidebar menu start-->
+    <ul class="sidebar-menu">
+      <li class="active">
+        <a class="" href="{% url 'dashboard_home' object.slug %}">
+                      <i class="icon_house_alt"></i>
+                      <span>Home</span>
+                  </a>
+      </li>
+      <li class="sub-menu">
+        <a href="javascript:;" class="">
+                      <i class="icon_document_alt"></i>
+                      <span>School info</span>
+                      <span class="menu-arrow arrow_carrot-right"></span>
+                  </a>
+        <ul class="sub">
+          <li><a class="" href="{% url 'dashboard_info' object.slug %}">School Basic info</a></li>
+          <li><a class="" href="{% url 'dashboard_gallery' %}">Gallery Section</a></li>
+          <li><a class="" href="{% url 'dashboard_news'%}">News Section</a></li>
+          <li><a class="" href="{% url 'register_teacher'%}">Add Teachers</a></li>
+        </ul>
+      </li>
+
+
+
+
+
+      <li class="sub-menu">
+        <a href="javascript:;" class="">
+                      <i class="icon_documents_alt"></i>
+                      <span>Pages</span>
+                      <span class="menu-arrow arrow_carrot-right"></span>
+                  </a>
+        <ul class="sub">
+          <li><a class="" href="{% url 'dashboard_user_profile' object.user.id %}">Profile</a></li>
+
+<!-- {{object.user.id}} -->
+
+        </ul>
+      </li>
+
+
+    </ul>
+    <!-- sidebar menu end-->
+  </div>
+</aside>

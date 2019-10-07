@@ -1,0 +1,51 @@
+{% extends 'account/account.html '%}
+{% load static %}
+{% block title %}
+	Login Teche educators
+{% endblock %}
+
+
+{% block content%}
+
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt>
+          <img src="{% static 'images/image.jpg' %}" alt="IMG">
+        </div>
+
+				<form class="login100-form validate-form" method="POST" >
+					{% csrf_token %}
+					<span class="login100-form-title">
+						Enter an email address<span style="font-size: 12px; color: #8395a7;"> at which password recovery link will be send.</span>
+					</span>
+      					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="email" name="email" placeholder="Email" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Recovery Link Send
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+{% extends 'account/account.html' %}
+{% load static %}
+	{% block title %}
+
+Register
+	{% endblock %}
+
+
+
+{% block content %}
+          <!-----------------------------------------------------------------------------
+                                       End Navigation
+           ------------------------------------------------------------------------------>
+	<div class="page-content" style="background-color: #eee"> <!-- style="background-image: url('images/wizard-v1.jpg') desired pic can also set to background-->
+		<div class="wizard-v1-content">
+			<div class="wizard-form">
+		        <form class="form-register" id="form-register" action="{% url 'register' %}" method="post">
+							{% csrf_token %}
+<!-- {{userform}}
+{{schoolform}} -->
+
+
+		        	<div id="form-total">
+   <!------------------------------ SECTION 1-------------------->
+			            <h2>
+			            	<span class="step-icon"><i class="zmdi zmdi-account"></i></span>
+			            	<span class="step-number">Step 1</span>
+			            	<span class="step-text">Account Information</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="username">Username*</label>
+										{{user_form.name}}
+										<!-- <input type="text" placeholder="Username" class="form-control" id="username" name="name" required> -->
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="email">Email Address*</label>
+										{{user_form.email}}
+										<!-- <input type="email" placeholder="Your Email" class="form-control" id="email" name="email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"> -->
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="password">Password*</label>
+										{{user_form.password}}
+										<!-- <input type="password" placeholder="Password" class="form-control" id="password" name="password" minlength="8" required> -->
+									</div>
+									<div class="form-holder">
+										<label for="confirm_password">Confirm Password*</label>
+										<input type="password" placeholder="Confirm Password" class="form-control" id="confirm_password" name="confirm_password" minlength="8" required>
+									</div>
+								</div>
+							</div>
+			            </section>
+    <!---------------------------------- SECTION 2----------------------------------->
+			            <h2>
+			            	<span class="step-icon"><i class="zmdi zmdi-card"></i></span>
+			            	<span class="step-number">Step 2</span>
+			            	<span class="step-text">School information</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<div class="inner">
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="schlnme">Complete School Name*</label>
+										{{school_form.school_name}}
+										<!-- <input type="text" placeholder="Enter Complete School Name" class="form-control" id="schlnme" name="schlnme" required> -->
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="shortname">School Short Name*</label>
+											{{school_form.school_short_name}}
+										<!-- <input type="text" placeholder="Enter School Short Name" class="form-control" id="shortname" name="shortname" required> -->
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="address">School Address*</label>
+											{{school_form.school_address}}
+										<!-- <input type="text" placeholder="Enter School Address" class="form-control" id="address" name="address" required> -->
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder form-holder-2">
+										<label for="contactno">School official Contact Number*</label>
+											{{school_form.school_contact}}
+										<!-- <input type="text" placeholder="Enter School official Contact Number" class="form-control" id="contactno" name="contactno" maxlength="14" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required> -->
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<label for="mobno">Mobile Number</label>
+											{{school_form.school_mobile}}
+										<!-- <input type="text" placeholder="Enter Mobile Number" class="form-control" id="mobno" name="mobno" maxlength="14" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> -->
+									</div>
+								</div>
+							</div>
+								<div class="form-row form-row-2">
+									<div class="form-holder">
+										<label for="district">Select Distt</label>
+											{{school_form.district}}
+										<!-- <select name="district" id="district" class="form-control">
+											<option value="" disabled selected>District</option>
+											<option value="Masehra">Masehra</option>
+											<option value="Haripur">Haripur</option>
+											<option value="Abbottabad">Abbottabad</option>
+											<option value="Kohistan">Kohistan</option>
+											<option value="Battagram">Battagram</option>
+											<option value="Malakand">Malakand</option>
+										</select> -->
+									</div>
+									<div class="form-holder">
+										<label for="tehsil">Select Tehsil</label>
+											{{school_form.tehsil}}
+										<!-- <select name="tehsil" id="tehsil" class="form-control">
+											<option value="" disabled selected>Tehsil</option>
+											<option value="Mansehra">Mansehra</option>
+											<option value="Balakot">Balakot</option>
+											<option value="Ohghi">Ohghi</option>
+											<option value="Abbottabad">Abbottabad</option>
+											<option value="Baffa">Baffa</option>
+											<option value="Havelian">Havelian</option>
+										</select> -->
+									</div>
+                                </div>
+							</div>
+			            </section>
+   <!------------------------------- SECTION 3 ---------------------------->
+			            <h2>
+			            	<span class="step-icon"><i class="zmdi zmdi-receipt"></i></span>
+			            	<span class="step-number">Step 3</span>
+			            	<span class="step-text">Confirm Your Details</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<h3>Confirm Your Details</h3>
+								<div class="form-row table-responsive">
+									<table class="table">
+										<tbody>
+											<tr class="space-row">
+												<th>Username:</th>
+												<td id="username-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>Email Address:</th>
+												<td id="email-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>Comlete School Name:</th>
+												<td id="schlnme-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>School Short Name:</th>
+												<td id="shortname-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>School Address:</th>
+												<td id="address-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>Official Contact No:</th>
+												<td id="contactno-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>Mobile No:</th>
+												<td id="mobno-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>Phone No:</th>
+												<td id="phnno-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>Dist:</th>
+												<td id="district-val"></td>
+											</tr>
+											<tr class="space-row">
+												<th>Tehsil:</th>
+												<td id="tehsil-val"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="submitbtn">
+                                  <input type="submit" name="submit" value="Submit" class="submitbutton"></div>
+                                </div>
+                            </section>
+                      </div>
+		        </form>
+              </div>
+		</div>
+	</div>
+	   <!-----------------------------------------------------------------------------
+                                       START FOOTER
+          --------------------------------------------------------------------------->
+  {% endblock %}

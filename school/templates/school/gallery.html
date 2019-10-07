@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery</title>
+    {% include 'school/school_css.css' %}
+ </head>
+ <body>
+<!--START SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#">
+    <i class="fa fa-angle-up"></i>
+    </a>
+<!-- END SCROLL TOP BUTTON -->
+
+<!-- Start menu -->
+<section id="mu-menu">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- LOGO -->
+        <!-- TEXT BASED LOGO -->
+        <a class="navbar-brand" href="{% url 'school' object.slug %}"><i class="fa fa-university"></i><span>{{object.school_name}}</span></a>
+        <!-- IMG BASED LOGO  -->
+        <!-- <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="logo"></a> -->
+      </div>
+
+      <div id="navbar" class="navbar-collapse collapse">
+      <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+          <li><a href="{% url 'school' object.slug %}">Home</a></li>
+          <li class="active" ><a href="{% url 'gallery' object.id %}" >Gallery</a></li>
+          <li><a href="">About School</a></li>
+      </ul>
+      </div>
+
+
+    </div>
+  </nav>
+</section>
+<!-- End menu -->
+<!-- Page breadcrumb -->
+<section id="mu-page-breadcrumb">
+ <div class="container">
+   <div class="row">
+     <div class="col-md-12">
+       <div class="mu-page-breadcrumb-area">
+         <ol class="breadcrumb">
+          <li><a href="{%url 'school' object.slug %}">Home</a></li>
+          <li class="active">Gallery</li>
+        </ol>
+       </div>
+     </div>
+   </div>
+ </div>
+</section>
+<!-- End breadcrumb -->
+<!-- Start gallery  -->
+
+
+<section id="mu-gallery">
+
+ <div class="container">
+   <div class="row">
+     <div class="col-md-12">
+       <div class="mu-gallery-area">
+        <!-- start title -->
+        <div class="gallery_title">
+          <h2 style="text-align: center; color:#2e86de;">Some Moments</h2>
+          <p style="text-align: center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ut laboriosam corporis doloribus, officia, accusamus illo nam tempore totam alias!</p>
+        </div>
+        <!-- end title -->
+        <!-- start gallery content -->
+
+        <div class="mu-gallery-content">
+          <!-- Start gallery menu -->
+          <div class="mu-gallery-top">
+            <ul>
+              <!-- get_FIELD_display -->
+
+              <!--  -->
+              <li class="filter active" data-filter="all">All</li>
+              <li class="filter" data-filter=".lab">Lab</li>
+              <li class="filter" data-filter=".classroom">Class Room</li>
+              <li class="filter" data-filter=".library">Library</li>
+              <li class="filter" data-filter=".cafe">Cafe</li>
+              <li class="filter" data-filter=".others">Others</li>
+            </ul>
+          </div>
+
+          <!-- End gallery menu -->
+
+          <div class="mu-gallery-body">
+            <ul id="mixit-container" class="row">
+
+
+              <!-- start single gallery image -->
+          <!-- {% for abc in object_list%}
+              <li class="col-md-4 col-sm-6 col-xs-12 mix ">
+                <div class="mu-single-gallery">
+                  <div class="mu-single-gallery-item">
+                    <div class="mu-single-gallery-img">
+                      <a href="#"><img alt="img" src="{{abc.gallery_img.url}}"></a>
+                    </div>
+
+                     <div class="mu-single-gallery-info">
+                      <div class="mu-single-gallery-info-inner">
+                        <h4>{{abc.gallery_img_title}}</h4>
+                        <p>{{abc.get_img_category_display}}</p>
+                        <a href="{{abc.gallery_img.url}}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                        <a href="#" class="aa-link"><span class="fa fa-link"></span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {% endfor %} -->
+
+
+
+              {% for img in object_list %}
+                           {% if 'LR' in img.img_category %}
+                          <li class="col-md-4 col-sm-6 col-xs-12 mix library"> <!---library--->
+                             <div class="mu-single-gallery">
+                               <div class="mu-single-gallery-item">
+                                 <div class="mu-single-gallery-img">
+                                   <a href="#"><img alt="img" src="{{img.gallery_img.url}}"></a>
+                                 </div>
+                                  <div class="mu-single-gallery-info">
+                                   <div class="mu-single-gallery-info-inner">
+                                     <h4>{{img.gallery_img_title}}</h4>
+                                     <p>{{img.get_img_category_display}}</p>
+                                     <a href="{{img.gallery_img.url}}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                                     <a href="#" class="aa-link"><span class="fa fa-link"></span></a>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                          </li>
+                          {%endif%}
+                          {% if 'LB' in img.img_category %}
+                           <!-- start single gallery image -->
+                           <li class="col-md-4 col-sm-6 col-xs-12 mix lab"> <!----lab---->
+                             <div class="mu-single-gallery">
+                               <div class="mu-single-gallery-item">
+                                 <div class="mu-single-gallery-img">
+                                   <a href="#"><img alt="img" src="{{img.gallery_img.url}}"></a>
+                                 </div>
+                                  <div class="mu-single-gallery-info">
+                                   <div class="mu-single-gallery-info-inner">
+                                     <h4>{{img.gallery_img_title}}</h4>
+                                     <p>{{img.get_img_category_display}}</p>
+                                     <a href="{{img.gallery_img.url}}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                                     <a href="#" class="aa-link"><span class="fa fa-link"></span></a>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </li>
+                           {%endif%}
+                           <!-- start single gallery image -->
+                           {% if 'CM' in img.img_category %}
+                           <li class="col-md-4 col-sm-6 col-xs-12 mix classroom"> <!----classroom---->
+                             <div class="mu-single-gallery">
+                               <div class="mu-single-gallery-item">
+                                 <div class="mu-single-gallery-img">
+                                   <a href="#"><img alt="img" src="{{img.gallery_img.url}}"></a>
+                                 </div>
+                                  <div class="mu-single-gallery-info">
+                                   <div class="mu-single-gallery-info-inner">
+                                     <h4>{{img.gallery_img_title}}</h4>
+                                     <p>{{img.get_img_category_display}}</p>
+                                     <a href="{{img.gallery_img.url}}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                                     <a href="#" class="aa-link"><span class="fa fa-link"></span></a>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </li>
+                           {%endif%}
+                             {% if 'OT' in img.img_category %}
+                           <!-- start single gallery image -->
+                           <li class="col-md-4 col-sm-6 col-xs-12 mix others"> <!----others---->
+                             <div class="mu-single-gallery">
+                               <div class="mu-single-gallery-item">
+                                 <div class="mu-single-gallery-img">
+                                   <a href="#"><img alt="img" src="{{img.gallery_img.url}}"></a>
+                                 </div>
+                                  <div class="mu-single-gallery-info">
+                                   <div class="mu-single-gallery-info-inner">
+                                     <h4>{{img.gallery_img_title}}</h4>
+                                     <p>{{img.get_img_category_display}}</p>
+                                     <a href="{{img.gallery_img.url}}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                                     <a href="#" class="aa-link"><span class="fa fa-link"></span></a><!--here external link can be added in picture---->
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </li>
+                           {%endif%}
+                             {% if 'CF' in img.img_category %}
+                           <!-- start single gallery image -->
+                           <li class="col-md-4 col-sm-6 col-xs-12 mix cafe"> <!----cafe----->
+                             <div class="mu-single-gallery">
+                               <div class="mu-single-gallery-item">
+                                 <div class="mu-single-gallery-img">
+                                   <a href="#"><img alt="img" src="{{img.gallery_img.url}}"></a>
+                                 </div>
+                                  <div class="mu-single-gallery-info">
+                                   <div class="mu-single-gallery-info-inner">
+                                     <h4>{{img.gallery_img_title}}</h4>
+                                     <p>{{img.get_img_category_display}}</p>
+                                     <a href="{{img.gallery_img.url}}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                                     <a href="#" class="aa-link"><span class="fa fa-link"></span></a>
+                                   </div>
+                                 </div>
+                               </div>
+                             </div>
+                           </li>
+                           {%endif%}
+                        {%endfor %}
+            </ul>
+          </div>
+        </div>
+        <!-- end gallery content -->
+       </div>
+     </div>
+   </div>
+ </div>
+</section>
+<!-- End gallery  -->
+
+<!----------------------- START FOOTER---------------------------------->
+<header id="newsgalleryfooter">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="news-gallery-forea">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="negal-header-top-left">
+                <div class="negal-top-email">
+                  <i class="fa fa-envelope"></i>
+                  <span>{{object.school_email}}</span>
+                </div>
+                <div class="negal-top-phone">
+                  <i class="fa fa-phone"></i>
+                  <span style="color: #fff;">{{object.school_contact}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="negal-header-top-right">
+                <nav>
+                  <ul class="negal-top-social-nav">
+                    <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                    <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                    <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+                    <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!------------------------------END FOOTER------------------------------>
+
+
+{% include 'school/school_javascripts.js'%}
+</body>
+</html>

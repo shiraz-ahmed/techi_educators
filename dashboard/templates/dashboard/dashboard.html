@@ -1,0 +1,161 @@
+{% extends 'dashboard/dashboard_index.html'%}
+{%block title %}  User Dashboard   {%endblock%}
+
+
+{% block content %}
+    <section id="main-content">
+      <section class="wrapper">
+        <!--overview start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="">Home</a></li>
+              <li><i class="fa fa-laptop"></i>Dashboard</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+
+
+          <div class="col-md-3">
+
+            <div class="social-box facebook">
+              <i class="fa fa-facebook"></i>
+              <ul>
+                <li>
+                  <strong>256k</strong>
+                  <span>friends</span>
+                </li>
+                <li>
+                  <strong>359</strong>
+                  <span>feeds</span>
+                </li>
+              </ul>
+            </div>
+            <!--/social-box-->
+          </div>
+          <div class="col-md-3">
+
+            <div class="social-box google-plus">
+              <i class="fa fa-google-plus"></i>
+              <ul>
+                <li>
+                  <strong>962</strong>
+                  <span>followers</span>
+                </li>
+                <li>
+                  <strong>256</strong>
+                  <span>circles</span>
+                </li>
+              </ul>
+            </div>
+            <!--/social-box-->
+
+          </div>
+          <!--/col-->
+          <div class="col-md-3">
+
+            <div class="social-box twitter">
+              <i class="fa fa-twitter"></i>
+              <ul>
+                <li>
+                  <strong>1562k</strong>
+                  <span>followers</span>
+                </li>
+                <li>
+                  <strong>2562</strong>
+                  <span>tweets</span>
+                </li>
+              </ul>
+            </div>
+            <!--/social-box-->
+
+          </div>
+          <!--/col-->
+        </div>
+<!-- simple info about school -->
+<h3 class="col-lg-12 col-md-6 col-sm-4 ">School Web Address</h3>
+<h4><a href="{% url 'school' object.slug%}">http://127.0.0.1:8000/school/{{object.slug}}</a></h4>
+
+
+
+<h3 class="col-lg-12 col-md-6 col-sm-4 text-center">School Info</h3>
+<br>
+<br>
+<hr>
+         <div class="row">
+            <div class="panel panel-default">
+
+              <div class="panel-body">
+                <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{{ forloop.counter }}</th>
+        <th scope="col">User</th>
+      <th scope="col">User email</th>
+      <th scope="col">School</th>
+      <th scope="col">email address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">#</th>
+      <td>{{object.user.name}}</td>
+      <td>{{object.user}}</td>
+      <td>{{object.school_name}}</td>
+      <td>{{object.school_email}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+            </div>
+
+        </div>
+
+<h3 class="col-lg-12 col-md-6 col-sm-4 text-center">Teachers Info</h3>
+<br>
+<hr>
+         <div class="row">
+            <div class="panel panel-default">
+
+              <div class="panel-body">
+                <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Intro</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for teacher in all_teachers%}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{teacher.teacher_name}}</td>
+      <td>{{teacher.teacher_qual}}</td>
+      <td>{{teacher.teacher_intro|truncatewords:15}}</td>
+    </tr>
+    {%empty%}
+      <h2>No teachers added yet</h2>
+    {%endfor%}
+  </tbody>
+</table>
+
+
+              </div>
+            </div>
+
+        </div>
+
+
+      </section>
+      <div class="text-right">
+        <div class="credits">
+          Designed by <a href="">SirajZIa</a>
+        </div>
+      </div>
+    </section>
+
+{%endblock%}

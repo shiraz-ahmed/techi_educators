@@ -1,0 +1,110 @@
+
+#mu-menu {
+  display: inline;
+  width: 100%;
+}
+#mu-menu .navbar-header .navbar-brand {
+  color: #333;
+  font-family: "Montserrat", sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 20px;
+  letter-spacing: 0.5px;
+}
+#mu-menu .navbar-header .navbar-brand i {
+  font-size: 35px;
+}
+#mu-menu .navbar-header .navbar-brand span {
+  margin-left: 4px;
+}
+#mu-menu .navbar-default {
+  background-color: #fff;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 0px;
+}
+#mu-menu .navbar-default .navbar-nav li > a {
+  border-bottom: 2px solid transparent;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  margin-bottom: -1px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#mu-menu .navbar-default .navbar-nav li .dropdown-menu li a:hover, #mu-menu .navbar-default .navbar-nav li .dropdown-menu li a:focus {
+  color: #fff;
+}
+#mu-menu .navbar-default .navbar-nav .open a:hover, #mu-menu .navbar-default .navbar-nav .open a:focus {
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  #mu-menu .navbar-default .navbar-nav li > a {
+    font-size: 15px;
+    padding: 25px 10px;
+  }
+}
+@media (max-width: 767px) {
+  .navbar-header {
+    padding: 10px 0;
+  }
+
+  #mu-menu .navbar-header .navbar-brand {
+    padding-top: 10px;
+  }
+
+  
+
+  #mu-menu .navbar-default .navbar-nav li > a {
+    padding: 15px 20px;
+  }
+}
+  
+/*===============================================================================================
+                                      FOOTER SECTION
+============================================================================================================*/
+
+#mu-footer {
+  display: inline;
+  float: left;
+  width: 100%;
+}
+
+#mu-footer .mu-footer-bottom {
+  background-color: #222f3e;
+  display: inline;
+  float: left;
+  padding: 25px 0;
+  width: 100%;
+}
+#mu-footer .mu-footer-bottom .mu-footer-bottom-area {
+  display: inline;
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+#mu-footer .mu-footer-bottom .mu-footer-bottom-area p {
+  color: #fff;
+  margin-bottom: 0;
+  letter-spacing: 0.3px;
+  font-size: 15px;
+}
+#mu-footer .mu-footer-bottom .mu-footer-bottom-area p a {
+  color: #fff;
+  font-size: 16px;
+}
+#mu-footer .mu-footer-bottom .mu-footer-bottom-area p a:hover {
+  cursor: pointer;
+  color: #3498db;
+}
+
+
+
+
+/*Made with <3 on 25/6/2019 TIME 5:47PM Siraj zia*/

@@ -1,0 +1,303 @@
+{% extends 'dashboard/dashboard_index.html'%}
+{% load static %}
+{%block title %}  School Info  {%endblock%}
+
+
+{% block content %}
+
+<section id="main-content">
+  <section class="wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-file-text-o"></i>School Basic Info</h3>
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+          <li><i class="icon_document_alt"></i>School info</li>
+          <li><i class="fa fa-file-text-o"></i>School Basic Info</li>
+
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">
+            Compllete School Information
+          </header>
+          {% if messages %}
+      		<ul class="messages">
+      		 {% for message in messages %}
+      		 <li><div class="alert alert-success alert-dismissible">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong class="bold">Success!</strong> {{message}}
+          </div></li>
+
+      		 {% endfor %}
+      		</ul>
+      		{% endif %}
+
+
+
+
+
+          <div class="panel-body">
+            <form class="form-horizontal " method="post" action="{% url 'dashboard_info' object.slug %}" enctype="multipart/form-data">
+              {% csrf_token%}
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Add Schoool Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="{{object.school_name}}" name="school_name" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">School Complete Address</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="{{object.school_address}}" name="school_address" required>
+                  <span class="help-block">For Footer details</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Slogan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="{{object.slogan}}" name="slogan">
+                  <span class="help-block">(Optional if any)</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">School Achievements</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="achievements">
+                  <span class="help-block">Like Top Ten Positions in Abbottabad</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Teachers Expertise</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="teacher_expertise">
+                  <span class="help-block">Like Expert Teachers etc</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Learning Environment</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="environment">
+                  <span class="help-block">Like Best Class Rooms</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">School Complete Description</label>
+                <div class="col-sm-10">
+                  <textarea class="col-lg-12" style="height: 200px;" name="description" required>{{object.description}}</textarea>
+                  <span class="help-block">Commplete School Description</span>
+
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">School Intro Video</label>
+                <div class="col-sm-10">
+                  <input type="file" class="form-control" value="{{object.demo_video}}" name="demo_video">
+                  <span class="help-block">School introduction video (Optional)</span>
+
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Contact No</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" value="{{object.school_contact}}" name="school_contact">
+                  <span class="help-block">Official Contact No</span>
+                </div>
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-4">
+                  <input type="email" class="form-control" value="{{object.school_email}}" name="school_email" required>
+                  <span class="help-block">Email Address</span>
+                </div>
+
+              </div>
+
+
+
+
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+
+    <!-- Teachers section -->
+
+
+    <!-- Principal section -->
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">
+            Compllete Principal Information
+          </header>
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="principal_name"  required  value="{{object.principal_name}}">
+                <span class="help-block">Principal Name</span>
+              </div>
+              <label class="col-sm-2 control-label">Qualification</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control"  name="principal_qual" required  value="{{object.principal_qual}}">
+                <span class="help-block">Qualification/Designation</span>
+              </div>
+              <label class="col-sm-2 control-label">Picture</label>
+              <div class="col-sm-2">
+                <input type="file" class="form-control"  name="principal_pic" value="{{object.principal_pic}}">
+
+                <span class="help-block">Principal Pic</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Message</label>
+              <div class="col-sm-10">
+                <textarea class="col-lg-12" style="height: 200px;"  name="principal_message" required>{{object.principal_message}}</textarea>
+                <span class="help-block">Principal Message</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">
+            School Slider
+          </header>
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="col-sm-2  control-label">slider Heading </label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="school_slider_heading"  required  value="{{object.school_slider_heading}}">
+                <span class="help-block"> Heading </span>
+              </div>
+
+              <label class="col-sm-2 control-label">Slider Image 1</label>
+              <div class="col-sm-4">
+                <input type="file" class="form-control"  name="school_slider1" value="{{object.school_slider1}}">
+
+                <span class="help-block">Slider Image </span>
+              </div>
+
+              <label class="col-sm-2 control-label">Slider Image 2</label>
+              <div class="col-sm-4">
+                <input type="file" class="form-control"  name="school_slider2" value="{{object.school_slider2}}">
+
+                <span class="help-block">Slider Image</span>
+              </div>
+
+              <label class="col-sm-2 control-label">Slider Image 3</label>
+              <div class="col-sm-3">
+                <input type="file" class="form-control"  name="school_slider2" value="{{object.school_slider3}}">
+
+                <span class="help-block">Slider Image</span>
+              </div>
+                <div class="form-group">
+              <label class="col-sm-2 control-label">slider Description</label>
+              <div class="col-sm-10">
+                <textarea class="col-lg-12" style="height: 200px;"  name="school_slider_desc" required>{{object.school_slider_desc}}</textarea>
+                <span class="help-block">Put some text on the Image </span>
+              </div>
+            </div>
+          </div>
+
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+<!-- for social links facebook etc  -->
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        School Social Links
+      </header>
+      <div class="panel-body">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">facebook</label>
+          <div class="col-sm-10">
+            <input type="url" class="form-control" value="{{object.facebook_addr}}" name="facebook_addr">
+            <span class="help-block">(Optional if any)</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Twitter</label>
+          <div class="col-sm-10">
+            <input type="url" class="form-control" value="{{object.twitter_addr}}" name="twitter_addr">
+            <span class="help-block">(Optional if any)</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">linkedin</label>
+          <div class="col-sm-10">
+            <input type="url" class="form-control" value="{{object.linkedin_addr}}" name="linkedin_addr">
+            <span class="help-block">(Optional if any)</span>
+          </div>
+        </div>
+
+
+      </div>
+    <div class="form-group">
+              <div class="col-lg-offset-6 col-lg-10">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-default" type="button">Cancel</button>
+              </div>
+            </div>
+    </section>
+  </div>
+</div>
+
+
+
+</div>
+
+
+      </form>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+
+          </div>
+<div class="text-right">
+  <div class="credits">
+      Designed by <a href="">SirajZia</a>
+    </div>
+</div>
+</section>
+</section>
+<script type="text/javascript">
+
+// for addmore pics
+$(document).ready(function() {
+
+
+  $(".add-more").click(function(){
+      var html = $(".copy").html();
+      $(".after-add-more").after(html);
+  });
+
+
+  $("body").on("click",".remove",function(){
+      $(this).parents(".control-group").remove();
+  });
+
+
+});
+</script>
+
+{% endblock %}

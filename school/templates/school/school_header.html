@@ -1,0 +1,10 @@
+<div id="navbar" class="navbar-collapse collapse">
+<ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+    <li class="active"><a href="{% url 'school' object.slug %}">Home</a></li>
+    <li><a href="{% url 'gallery' object.id %}">Gallery</a></li>
+    <li><a href="">About School</a></li>
+    <li><a href="#principal" onClick="document.getElementById('principal').scrollIntoView();">Principal Message</a></li>
+    <li><a  href="#news" onClick="document.getElementById('news').scrollIntoView();">Latest News</a></li>
+</ul>
+</div>
+<!-- <input type="button" onClick="document.getElementById('middle').scrollIntoView();" /> -->
